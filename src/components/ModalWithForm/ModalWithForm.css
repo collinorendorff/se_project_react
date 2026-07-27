@@ -1,0 +1,110 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #0000004d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "Cabinet Grotesk";
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0%;
+}
+
+.modal__content {
+  background-color: #fff;
+  position: relative;
+  padding: 28px 28px 36px;
+
+  box-sizing: border-box;
+  max-width: 496px;
+  width: 100%;
+  max-height: 436px;
+  height: 100%;
+  border-radius: 20px;
+}
+
+.modal__title {
+  margin: 0;
+  font-size: 16px;
+}
+
+.modal__close {
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  border: none;
+  padding: 0;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.modal__label {
+    margin-top: 24px;
+}
+
+.modal__input {
+  display: block;
+  padding: 0 0 4px 0;
+  margin-top: 8px;
+  width: 100%;
+  border: none;
+  border-bottom: solid black 1px;
+  outline: none;
+}
+
+.modal__radio-btns {
+  border: none;
+  padding: 0;
+  margin: 24px 0 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__legend {
+    margin-bottom: 12px;
+}
+
+.modal__label_type_radio {
+    margin-top: 0;
+    opacity: 0.5;
+}
+
+.modal__label_type_radio:has(input[type="radio"]:checked) {
+    opacity: 1;
+}
+
+.modal__label_type_radio + .modal__label_type_radio {
+    margin-top: 8px;
+}
+
+.modal__radio-input {
+    margin-right: 8px;
+    accent-color: black;
+}
+
+.modal__submit {
+    height: 36px;
+    width: 124px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    background-color: black;
+    cursor: pointer;
+}
+
+.modal__submit:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
