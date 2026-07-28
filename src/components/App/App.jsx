@@ -11,7 +11,7 @@ import { coordinates, APIkey } from "../../utils/constants";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
-    type: "cold",
+    type: "",
     temp: { F: 999 },
     city: "",
   });
