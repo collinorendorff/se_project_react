@@ -1,6 +1,6 @@
-export const getWeatherCondition = ({ latitude, longitude }, APIkey) => {
+export const getWeatherCondition = ({ latitude, longitude }, apiKey) => {
   return fetch(
-    `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIkey}`,
+    `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${apiKey}`,
   ).then((res) => {
     if (res.ok) {
       return res.json();
@@ -20,7 +20,30 @@ export const filterWeatherData = (data) => {
   result.temp = { F: temp };
   result.type = getWeatherType(temp);
 
-  result.condition = data.weather[0].main.toLowerCase();
+  // Mapping weather condition according to different codes with dozens of possible
+  // values
+  /* --------------------- */
+  const weatherCode = data.weather[0].id;
+  const conditions = [
+    "",
+    "",
+    "thunderstorm",
+    "rain",
+    "",
+    "rain",
+    "snow",
+    "atmosphere",
+    "clouds",
+  ];
+  let condition;
+  if (weatherCode === 800) {
+    condition = "clear";
+  } else {
+    condition = conditions[Math.floor(weatherCode / 100)];
+  }
+  result.condition = condition;
+  /* --------------------- */
+
   result.isDay = isDay(data.sys, Date.now());
   return result;
 };
